@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+  <div class="content-section paragraphs">
+
+      
+    <h1>{{ answer.question }} ?</h1>
+    <p>{{ answer.answer|linebreaks }} </p>
+    
+    
+    
+      
+{% endblock content %}

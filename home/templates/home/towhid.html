@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="paragraphs">
+        {% for tow in towhid %}
+          <h1>{{tow.title}}</h1>
+          <p>{{tow.content|linebreaks}}</p>
+        {% endfor %}
+    </div>
+{% endblock content %}
+
+

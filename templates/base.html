@@ -1,0 +1,189 @@
+
+{% load static  %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ustad Abdulla</title>
+    <link rel="stylesheet" href="{% static 'base.css' %}">
+    <script src="https://kit.fontawesome.com/5638352d5f.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=PT+Sans&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <!-- google font link -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Coiny&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=PT+Sans&family=Roboto:wght@300;400;700&family=Vollkorn:wght@400;700&display=swap" rel="stylesheet">
+
+  
+  
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    {% block css_files %} {% endblock %}
+
+</head>
+<body>
+    
+    
+        <nav class="navbar navbar-expand-md bg-dark navbar-dark ">
+            <div class="navbar-brand mr-4">
+                <img src="{% static 'home/rasul.png' %}" alt="Rasul" width="40" height="40" style="background-color: rgb(185, 170, 170); border-radius: 10px;">
+            </div>
+            <button class="navbar-toggler" data-toggle="collapse" data-target="#togglenav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="togglenav">  
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item"><a class="nav-link" href="{% url 'home' %}">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'towhid' %}">Towhid</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'swalah' %}">Swalah</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'zakat' %}">Zakat</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'swaum' %}">Swaum</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'hajj' %}">Hajj</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'others' %}">Other Topics</a></li>
+                   
+                </ul>
+                
+                  <!-- <div class="navbar-nav">
+                    <form class="form-inline" action="">
+                    <input class="form-control mr-sm-2" type="text" placeholder="Search">
+                    <button class="btn btn-success" type="submit">Search</button>
+                   </form>
+                  </div> -->
+
+                <div class="navbar-nav ">
+                  <ul class="navbar-nav mr-auto ">
+                    {% if user.is_authenticated %}
+                    <li class="nav-item "><a class="nav-link" href="{% url 'profile' %}">
+                      <img class="rounded-circle account-img-profile" src="{{ user.profile.image.url }}">
+                      </a></li>
+                    <li class="nav-item pt-2"><a class="nav-link" href="{% url 'question' %}">Ask a question? </a></li>
+                    <li class="nav-item pt-2"><a class="nav-link" href="{% url 'answer' %}">Answers</a></li>
+                    <li class="nav-item pt-2"><a class="nav-link" href="{% url 'logout' %}">Logout</a></li>
+                    
+                    {% else %}
+                    <li class="nav-item"><a class="nav-link" href="{% url 'question' %}">Ask a question? </a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">Log In</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'register' %}">Sign Up</a></li>
+                    {% endif %}
+                  </ul>
+              
+                </div>
+             </div>  
+        </nav>
+
+        {% if messages %}
+
+            {% for message in messages  %}
+
+            <div class="alert alert-{{message.tags}}">{{ message }}</div>
+            
+              
+            {% endfor %}
+              
+            {% endif %}
+            {% block content %}
+
+            
+        
+            {% endblock content %}
+        
+                
+
+                  <!-- <div class="wrapper">
+                    <footer>
+                        <ul>
+                            <li><a href="{% url 'home' %}">Home</a></li>
+                            <li><a href="{% url 'towhid' %}" target="_blank">Towhid</a></li>
+                            <li><a href="{% url 'swalah' %}" target="blank">Swalah</a></li>
+                            <li><a href="{% url 'zakat' %}" target="blank">Zakat</a></li>
+                            <li><a href="{% url 'swaum' %}" target="blank">Swaum</a></li>
+                            <li><a href="{% url 'hajj' %}" target="blank">Hajj</a></li>
+                            <li><a href="{% url 'others' %}" target="blank">Others</a></li>
+                        </ul>
+                        
+
+                      
+                        
+                        
+                        <div class="footer-s">
+                          <p class="footer-paragraph">Follow us on</p>
+                          <div class="footer-sm">
+                            
+                              <a href="https://www.facebook.com/Ustadh-Abdulla-Haj-881385225261106/" target="blank">
+                                  <img src="{% static 'footer-images/facebook.png' %}" alt="facebook icon" alt="facebook" >
+                              </a>
+                              <a href="https://youtube.com/channel/UCBMucRtuyeOCjjR46DZFXJw" target="blank">
+                                  <img src="{% static 'footer-images/youtube.jpg' %}" alt="youtube icon" alt="YouTube">
+                              </a>
+                              <a href="https://twitter.com/UstadAbdullas?t=SRWVYXvcSm1lnp_XqJIQ_A&s=08" target="blank">
+                                  <img src="{% static 'footer-images/twitter.png' %}" alt="twitter icon" alt="Twitter">
+                              </a>
+                          </div>
+                        </div>
+
+                      
+                        
+
+                        <div style="clear: both;">
+
+                        </div>
+                          <div class="copyright">
+                            
+                            <p>
+                              Copyright &copy; UstadAbdulla.com
+                            </p>
+                          </div>
+
+                          <div class="copyright">
+                            
+                            <p>
+                              Developed by TechPower
+                            </p>
+                          </div>
+                        
+                    </footer>
+                    </div> -->
+
+
+                    <footer>
+                      <div class="container">
+                        <ul class="flex-row">
+                            <li><a href="{% url 'home' %}">Home</a></li>
+                            <li><a href="{% url 'towhid' %}" target="_blank">Towhid</a></li>
+                            <li><a href="{% url 'swalah' %}" target="blank">Swalah</a></li>
+                            <li><a href="{% url 'zakat' %}" target="blank">Zakat</a></li>
+                            <li><a href="{% url 'swaum' %}" target="blank">Swaum</a></li>
+                            <li><a href="{% url 'hajj' %}" target="blank">Hajj</a></li>
+                            <li><a href="{% url 'others' %}" target="blank">Others</a></li>
+                        </ul>
+                        <ul class="flex-row">
+                          <li>
+                            <a href="https://youtube.com/channel/UCBMucRtuyeOCjjR46DZFXJw" target="blank"><i class="fab fa-youtube"></i></a>
+                          </li>
+                          <li>
+                            <a href="https://twitter.com/UstadAbdullas?t=SRWVYXvcSm1lnp_XqJIQ_A&s=08" target="blank"><i class="fab fa-twitter"></i></a>
+                          </li>
+                          
+                          <li>
+                            <a href="https://www.facebook.com/Ustadh-Abdulla-Haj-881385225261106/" target="blank"><i class="fab fa-facebook"></i></a>
+                          </li>
+                          
+                        </ul>
+                        <p>Copyright &copy; UstadAbdulla.com</p>
+                      </div>
+                    </footer>  
+              
+
+   
+</body>
+</html>

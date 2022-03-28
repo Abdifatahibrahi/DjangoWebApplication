@@ -1,0 +1,47 @@
+{% load static  %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'home/style.css' %}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container-fluid">
+        <nav class="navbar navbar-expand-md bg-dark navbar-dark fixed-top">
+            <div class="navbar-brand">The webpage</div>
+            <button class="navbar-toggler" data-toggle="collapse" data-target="#togglenav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="togglenav">  
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="/home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Towhid</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Swalah</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Zakat</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Swaum</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Hajj</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Jihad</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" data-target="#submenu" href="#">Hadith</a>
+                        <ul class="dropdown-menu">
+                            <li class="dropdown-item">Sound hadith</li>
+                            <li class="dropdown-item">Sound hadith</li>
+                        </ul>
+                    </li>
+                </ul>
+                <form class="form-inline" action="/action_page.php">
+                    <input class="form-control mr-sm-2" type="text" placeholder="Search">
+                    <button class="btn btn-success" type="submit">Search</button>
+                  </form>
+                <div class="navbar-brand justify-content-end">Login</div> 
+             </div>  
+        </nav>
+</div
+</body>

@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="paragraphs">
+        {% for salat in swalah %}
+        <h1>{{ salat.title }}</h1>
+        <p>{{ salat.content|linebreaks}}</p>
+    {% endfor %}
+    </div>
+    
+{% endblock content %}
+
+

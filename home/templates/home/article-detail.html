@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="paragraphs">
+    
+      <h1>{{ articles.title }}</h1>
+      <p>{{ articles.content|linebreaks }}</p>
+    
+</div>
+    
+{% endblock content %}
+
+

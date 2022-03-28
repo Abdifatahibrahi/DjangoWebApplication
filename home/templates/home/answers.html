@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+  <div class="content-section">
+      <h1>Answers of the questions</h1>
+    <legend class="border-bottom mb-4">Answers</legend>
+
+    <ol class="answers">
+        {% for answer in answers  %}
+          
+            <li><a href="{% url 'answer-detail' answer.slug %}">{{ answer.question }} ?</a></li>
+            
+        {% endfor %}
+    </ol>
+        
+         
+  </div>
+
+{% endblock content %}

@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="paragraphs content-section">
+
+        
+            {% for other in others %}
+            <a href="{% url 'other-detail' other.slug %}" class="others-link">
+                <h1>{{ other.title }}</h1>
+                <p>{{ other.content|truncatewords:30}}</p>
+            </a>
+            {% endfor %}
+        
+        
+    </div>
+
+    
+    
+{% endblock content %}
+
+

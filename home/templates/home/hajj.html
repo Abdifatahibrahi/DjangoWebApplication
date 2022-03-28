@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<div class="paragraphs">
+    {% for haj in hajj %}
+      <h1>{{ haj.title}}</h1>
+      <p>{{ haj.content|linebreaks }}</p>
+    {% endfor %}
+</div>
+
+{% endblock content %}
+
+ {% include 'home/include/footer.html' %}
+

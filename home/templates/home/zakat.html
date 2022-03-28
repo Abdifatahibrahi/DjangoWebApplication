@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="paragraphs">
+    {% for zak in zakat %}
+      <h1>{{ zak.title }}</h1>
+      <p>{{ zak.content|linebreaks }}</p>
+    {% endfor %}
+</div>
+    
+{% endblock content %}
+
+

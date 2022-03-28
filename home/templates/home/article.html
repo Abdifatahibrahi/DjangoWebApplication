@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+{% for object in articles reversed %}
+                    <article class="media content-section">
+                    
+                      <div class="media-body">
+                        <div class="article-metadata">
+                         
+                          
+                        </div>
+                        <h2><a class="article-title" href="{% url 'article-detail' object.slug %}">{{ object.title }}</a></h2>
+                        <small class="text-muted">{{ object.date_posted | date:"F d, Y" }}</small>
+                        <p class="article-content">{{ object.content|truncatewords:30 }}</p>
+                      </div>
+                    </article>
+                    {% endfor %}
+
+{% endblock content %}
+
+ {% include 'home/include/footer.html' %}
+

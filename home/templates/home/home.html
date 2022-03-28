@@ -1,0 +1,189 @@
+{% extends 'base.html' %}
+{% load static  %}
+
+
+
+{% block css_files %} 
+<link rel="stylesheet" href="{% static 'home/style.css' %}">
+{% endblock %}
+
+        {% block content %}
+        
+        
+
+        <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+            
+
+            <ul class="carousel-indicators">
+                {% for image in images %}
+                <li data-target="#carouselExampleCaptions" data-slide-to="{{image.id}}" class="active"></li>
+                
+                    <!-- <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="{{ image.id }}" class="active"
+                    aria-current="true" aria-label="Slide {{ image.id }}"> -->
+                </button>
+                
+                
+                {% endfor %} 
+             </ul>
+            <div class="carousel-inner carousels">
+                {% for image in images reversed %}
+                <div class=" carousel-item {% if forloop.counter0 == 0 %}active{% endif %}">
+                    <img src="{{image.image.url}}" style="height:650px;" class="testi-overly d-block w-100 img-fluid" alt="sliderImg">
+                    <div class="carousel-caption  d-md-block">
+                        <h1 class="animate__animated
+                        {% if forloop.counter0 == 0 %}
+                        animate__fadeInDown
+                        {% endif %}
+                        {% if forloop.revcounter == 1 %}
+                        animate__bounce
+                        {% endif %}
+                        {% if forloop.revcounter == 2 %}
+                        animate__fadeInRight
+                        {% endif %}">{{image.title}}</h1>
+                        <h3 class="animate__animated animate__zoomIn">{{image.description}}</h3>
+                        <a href="3" class="button animate__animated animate__zoomIn mt-3 py-3 px-5 btn font-weight-bold"></a>
+                    </div>
+                </div>
+                {% endfor %}
+    
+                <a class="carousel-control-prev" href="#carouselExampleCaptions" data-slide="prev">
+                    <span class="carousel-control-prev-icon"></span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleCaptions" data-slide="next">
+                    <span class="carousel-control-next-icon"></span>
+                </a>
+            </div>
+    
+            
+        </div>
+
+        
+        <div class="paragraphs">
+            <div class="row">
+                <div class="col-sm-12 col-xl-8">
+                    <div>
+                    {% for object in obj reversed %}
+                    
+                    <article class="media content-section">
+                    
+                      <div class="media-body">
+                        <div class="article-metadata">
+                          <h2><a class="article-title" href="{% url 'towhid-details' object.slug %}">{{ object.title }}</a></h2>
+                        </div>
+                        
+                        
+                        <small class="text-muted">{{ object.date_posted | date:"F d, Y" }}</small>
+                        <p class="article-content">{{ object.content|truncatewords:30 }}</p>
+                      </div>
+                    </article>
+                  </a>
+                    {% endfor %} 
+                    {% for object in swalah reversed %}
+                    <article class="media content-section">
+                    
+                      <div class="media-body">
+                        <div class="article-metadata">
+                          <h2><a class="article-title" href="{% url 'swalah-details' object.slug %}">{{ object.title }}</a></h2>
+                          
+                        </div>
+                        
+                        <small class="text-muted">{{ object.date_posted | date:"F d, Y" }}</small>
+                        <p class="article-content">{{ object.content|truncatewords:30 }}</p>
+                      </div>
+                    </article>
+                    {% endfor %} 
+                    {% for object in zakat reversed %}
+                    <article class="media content-section">
+                    
+                      <div class="media-body">
+                        <div class="article-metadata">
+                          <h2><a class="article-title" href="{% url 'zakat-details' object.slug %}">{{ object.title }}</a></h2>
+                        </div>
+                        
+                        <small class="text-muted">{{ object.date_posted | date:"F d, Y" }}</small>
+                        <p class="article-content">{{ object.content|truncatewords:30 }}</p>
+                      </div>
+                    </article>
+                    {% endfor %} 
+                    {% for object in swaum reversed %}
+                    <article class="media content-section">
+                    
+                      <div class="media-body">
+                        <div class="article-metadata">
+                          <h2><a class="article-title" href="{% url 'swaum-details' object.slug %}">{{ object.title }}</a></h2>     
+                        </div>
+                        
+                        <small class="text-muted">{{ object.date_posted | date:"F d, Y" }}</small>
+                        <p class="article-content">{{ object.content|truncatewords:30 }}</p>
+                      </div>
+                    </article>
+                    {% endfor %} 
+                    {% for object in hajj reversed %}
+                    <article class="media content-section">
+                    
+                      <div class="media-body">
+                        <div class="article-metadata">
+                          <h2><a class="article-title" href="{% url 'hajj-details' object.slug %}">{{ object.title }}</a></h2> 
+                        </div>
+                        
+                        <small class="text-muted">{{ object.date_posted | date:"F d, Y" }}</small>
+                        <p class="article-content">{{ object.content|truncatewords:30 }}</p>
+                      </div>
+                    </article>
+                    {% endfor %} 
+                    </div>
+                </div>
+
+
+
+
+
+
+                <div class="col-sm-12 col-xl-4">
+                  <!-- content-section-articles  -->
+                    <div class="left content-section">
+                        <h2>Latest Articles</h2>
+                        
+                          {% for object in articles reversed %}
+
+                          
+                            <article class="media">
+                          
+                              <div class="media-body">
+                                <div class="article-metadata">
+                                  
+                                  
+                                  
+                                </div>
+                                <h2><a class="article-title" href="{% url 'home-article-detail' object.slug %}">{{ object.title }}</a></h2>
+                                <small class="text-muted">{{ object.date_posted | date:"F d, Y" }}</small>
+                                <p class="article-content">{{ object.content|truncatewords:10 }}</p>
+                              </div>
+                            </article>
+                          
+                          {% endfor %}
+      
+      
+                          
+                        
+                        
+        
+                    </div>
+                
+                </div>
+              </div>
+            
+            
+            
+            
+            <!-- <div style="clear: both;"></div> -->
+        </div>
+
+
+        {% endblock %}
+        
+        
+     
+
+        
+
